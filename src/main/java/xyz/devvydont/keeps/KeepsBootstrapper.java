@@ -60,6 +60,8 @@ public class KeepsBootstrapper implements PluginBootstrap {
         // This will make the blessing of keeping able to be obtained via villager trading.
         context.getLifecycleManager().registerEventHandler(LifecycleEvents.TAGS.postFlatten(RegistryKey.ENCHANTMENT).newHandler(event -> {
             event.registrar().addToTag(TagKey.create(RegistryKey.ENCHANTMENT, Key.key("tradeable")), List.of(EnchantmentUtils.KEEPING_BLESSING));
+            event.registrar().addToTag(TagKey.create(RegistryKey.ENCHANTMENT, Key.key("on_random_loot")), List.of(EnchantmentUtils.KEEPING_BLESSING));
+            event.registrar().addToTag(TagKey.create(RegistryKey.ENCHANTMENT, Key.key("on_traded_equipment")), List.of(EnchantmentUtils.KEEPING_BLESSING));
         }));
 
     }
