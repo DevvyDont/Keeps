@@ -50,7 +50,6 @@ keeping-default-items:
 ## `/keeps` Command
 
 Alternatively, the config can also be tweaked by using in game commands with the `keeps.admin` permission.
-"reload", "adddefault", "removedefault", "setenchantchance", "toggledefaults", "toggleenchant", "toggledeathcertificate"
 
 - `/keeps reload`: Reloads the configuration if any edits were made to `config.yml` (so you don't have to restart the server)
 - `/keeps adddefault <MATERIAL>`: Adds an item type to globally prevent dropping from death.
