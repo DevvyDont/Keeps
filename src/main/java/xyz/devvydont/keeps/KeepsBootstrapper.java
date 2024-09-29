@@ -9,12 +9,16 @@ import io.papermc.paper.registry.event.RegistryEvents;
 import io.papermc.paper.registry.keys.EnchantmentKeys;
 import io.papermc.paper.registry.keys.tags.ItemTypeTagKeys;
 import io.papermc.paper.registry.set.RegistrySet;
+import io.papermc.paper.registry.tag.TagKey;
+import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.inventory.EquipmentSlotGroup;
 import org.jetbrains.annotations.NotNull;
 import xyz.devvydont.keeps.commands.KeepsCommand;
 import xyz.devvydont.keeps.util.EnchantmentUtils;
+
+import java.util.List;
 
 /**
  * Class responsible for bootstrapping the plugin for implementing commands and enchantments.
@@ -51,6 +55,11 @@ public class KeepsBootstrapper implements PluginBootstrap {
                             .activeSlots(EquipmentSlotGroup.ANY)
                             .exclusiveWith(RegistrySet.keySet(RegistryKey.ENCHANTMENT, EnchantmentKeys.VANISHING_CURSE, EnchantmentKeys.BINDING_CURSE))
             );
+        }));
+
+        // This will make the blessing of keeping able to be obtained via villager trading.
+        context.getLifecycleManager().registerEventHandler(LifecycleEvents.TAGS.postFlatten(RegistryKey.ENCHANTMENT).newHandler(event -> {
+            event.registrar().addToTag(TagKey.create(RegistryKey.ENCHANTMENT, Key.key("tradeable")), List.of(EnchantmentUtils.KEEPING_BLESSING));
         }));
 
     }
