@@ -1,0 +1,5 @@
+name: Keeps
+version: '1.0-SNAPSHOT'
+main: xyz.devvydont.keeps.Keeps
+api-version: '1.21'
+bootstrapper: xyz.devvydont.keeps.KeepsBootstrapper

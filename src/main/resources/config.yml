@@ -1,0 +1,33 @@
+# The message to display to users when they die. This will only display if there were some items to be kept from death.
+# Use the {NUM_ITEMS} placeholder to reference the number of items.
+# Set to an empty string to disable the message.
+keeping-message: "&a{NUM_ITEMS} &6item(s) were retained from death!"
+
+# Set to 'true' if you want the "Blessing of Keeping" enchantment to function.
+# By setting this to true, the enchantment will work as expected and be able to be obtained
+# via villager trading.
+want-keeping-enchantment: true
+
+# The chance for the enchanting table to enchant an item with blessing of keeping along with any other
+# enchants that are rolled. "want-keeping-enchantment" must be set to true for this to function.
+# NOTE: This does not affect any enchantments previously rolled for enchants, this is simply just an additional enchantment.
+# Set to 0 if you do not want this enchantment to be rolled via the enchanting table.
+keeping-enchantment-table-chance: 20
+
+# Set to 'true' if you want certain items to be kept on death no matter what as if they were enchanted with
+# the blessing of keeping. Set to false to ignore the list of items defined below.
+want-keeping-defaults: true
+
+# Set to 'true' if you want players to receive death certificates when they die. These are essentially just pieces
+# paper that inform players when and where they died so they can easily find out where they died.
+want-death-certificates: true
+
+# The list of items to keep on death by default. These behave similarly as if they were enchanted
+# with the blessing of keeping enchantment. Add to this list by using the vanilla minecraft material key.
+# Note that "want-keeping-defaults" must be set to true for this to function.
+# For example, if you wanted to make diamond pickaxes unable to be lost on death, add:
+# - DIAMOND_PICKAXE
+keeping-default-items:
+  - BARRIER
+  - LIGHT
+  - COMMAND_BLOCK
