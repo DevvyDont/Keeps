@@ -19,13 +19,13 @@ import java.util.List;
  */
 public class KeepsCommand implements BasicCommand {
 
-    public static final String[] ARGS = new String[]{"reload", "adddefault", "removedefault", "setenchantchance", "toggledefaults", "toggleenchant", "toggledeathcertificate"};
+    public static final String[] ARGS = new String[]{"reload", "adddefault", "removedefault", "setenchantchance", "toggledefaults", "toggledeathcertificate"};
 
     @Override
     public void execute(@NotNull CommandSourceStack commandSourceStack, @NotNull String[] strings) {
 
         if (strings.length <= 0) {
-            commandSourceStack.getSender().sendMessage(Component.text("/keeps <reload | adddefault | removedefault | setenchantchance | toggledefaults | toggleenchant | toggledeathcertificate>").color(NamedTextColor.RED));
+            commandSourceStack.getSender().sendMessage(Component.text("/keeps <reload | adddefault | removedefault | setenchantchance | toggledefaults | toggledeathcertificate>").color(NamedTextColor.RED));
             return;
         }
 
@@ -106,14 +106,6 @@ public class KeepsCommand implements BasicCommand {
                 Keeps.getInstance().saveConfig();
                 Keeps.getInstance().reloadConfig();
                 commandSourceStack.getSender().sendMessage(Component.text("Setting for using default keeping items has been set to " + !useDefaults + "!").color(NamedTextColor.GREEN));
-                break;
-
-            case "toggleenchant":
-                boolean useEnchant = Keeps.getInstance().getConfig().getBoolean("want-keeping-enchantment");
-                Keeps.getInstance().getConfig().set("want-keeping-enchantment", !useEnchant);
-                Keeps.getInstance().saveConfig();
-                Keeps.getInstance().reloadConfig();
-                commandSourceStack.getSender().sendMessage(Component.text("Setting for enchantment functionality has been set to " + !useEnchant + "!").color(NamedTextColor.GREEN));
                 break;
 
             case "toggledeathcertificate":

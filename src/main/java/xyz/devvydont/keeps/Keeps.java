@@ -22,14 +22,8 @@ public final class Keeps extends JavaPlugin {
         INSTANCE = this;
 
         // Config handling
-        FileConfiguration config = this.getConfig();
-        config.addDefault("keeping-message", "&a{NUM_ITEMS} &6item(s) were retained from death!");
-        config.addDefault("want-keeping-enchantment", true);
-        config.addDefault("keeping-enchantment-table-chance", 20);
-        config.addDefault("want-keeping-defaults", true);
-        config.addDefault("keeping-default-items", List.of("BARRIER", "LIGHT", "COMMAND_BLOCK"));
-        config.addDefault("want-death-certificates", true);
         this.saveDefaultConfig();
+        FileConfiguration config = this.getConfig();
         config.options().copyDefaults(true);
 
         // Register events

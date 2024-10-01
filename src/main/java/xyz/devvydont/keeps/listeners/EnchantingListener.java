@@ -1,5 +1,6 @@
 package xyz.devvydont.keeps.listeners;
 
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.enchantment.EnchantItemEvent;
@@ -21,6 +22,10 @@ public class EnchantingListener implements Listener {
         if (!Keeps.getInstance().getConfig().getBoolean("want-keeping-enchantment", true))
             return;
 
+        Enchantment keeping = EnchantmentUtils.getKeepingEnchantment();
+        if (keeping == null)
+            return;
+
         // Get the chance. If it is 0, ignore
         int chance = Keeps.getInstance().getConfig().getInt("keeping-enchantment-table-chance", 20);
         if (chance <= 0)
@@ -31,7 +36,7 @@ public class EnchantingListener implements Listener {
             return;
 
         // Add the enchantment
-        event.getEnchantsToAdd().put(EnchantmentUtils.getKeepingEnchantment(), 1);
+        event.getEnchantsToAdd().put(keeping, 1);
     }
 
 }
